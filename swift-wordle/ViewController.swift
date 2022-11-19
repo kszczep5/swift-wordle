@@ -9,7 +9,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    var model: Model = Model()
+    private let model: Model = Model()
     
     @IBOutlet weak var label1: NSTextField!
     @IBOutlet weak var label2: NSTextField!
@@ -113,7 +113,7 @@ class ViewController: NSViewController {
         }
     }
     
-    func textFields(forRowAt rowIndex: Int) -> [NSTextField] {
+    private func textFields(forRowAt rowIndex: Int) -> [NSTextField] {
         switch rowIndex {
         case 0: return [label1, label2, label3, label4, label5]
         case 1: return [label6, label7, label8, label9, label10]
