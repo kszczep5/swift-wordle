@@ -108,7 +108,7 @@ class ViewController: NSViewController {
     }
     
     private func resetTextFields() {
-        for rowIndex in 0 ..< 8 {
+        for rowIndex in 0 ..< WordleRules.maxTries {
             textFields(forRowAt: rowIndex)
                 .forEach {
                     $0.backgroundColor = .white
