@@ -69,7 +69,7 @@ class ViewController: NSViewController {
         activeTextFields[model.position].stringValue = sender.title
     }
     
-    private func changeLabel(_ numbers: [String],_ pos: Int){
+    private func changeLabel(_ numbers: [String],_ pos: Int) {
         activeTextFields[model.position].stringValue = numbers[pos]
     }
     
@@ -88,10 +88,9 @@ class ViewController: NSViewController {
                     updateBackgroundColor(of: textField, basedOn: checkedAnswer[index].validation)
                 }
         }
-        
     }
     
-    private func updateBackgroundColor(of textField: NSTextField, basedOn validation: Answer.Element.Validation){
+    private func updateBackgroundColor(of textField: NSTextField, basedOn validation: Answer.Element.Validation) {
         switch validation {
         case .presentButIncorrectPosition:
             textField.backgroundColor = .orange

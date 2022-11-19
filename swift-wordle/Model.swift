@@ -22,7 +22,7 @@ class Model {
     
     var rowIndex = 0
     var position = 0
-     
+    
     func changePosition(to newPosition: Int) {
         position = newPosition
     }
