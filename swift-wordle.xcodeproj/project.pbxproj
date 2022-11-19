@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		349B74E529290C02005A9C2B /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B74E429290C02005A9C2B /* Answer.swift */; };
 		349B74E729291231005A9C2B /* WordleRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B74E629291231005A9C2B /* WordleRules.swift */; };
-		349B74E929292238005A9C2B /* Array+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B74E829292238005A9C2B /* Array+SafeSubscript.swift */; };
 		E77FA61D2926D7CA00D163E9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FA61C2926D7CA00D163E9 /* Model.swift */; };
 		E79C19652926D6400039B9A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C19642926D6400039B9A8 /* AppDelegate.swift */; };
 		E79C19672926D6400039B9A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C19662926D6400039B9A8 /* ViewController.swift */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		349B74E429290C02005A9C2B /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		349B74E629291231005A9C2B /* WordleRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleRules.swift; sourceTree = "<group>"; };
-		349B74E829292238005A9C2B /* Array+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeSubscript.swift"; sourceTree = "<group>"; };
 		E77FA61C2926D7CA00D163E9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E79C19612926D6400039B9A8 /* swift-wordle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-wordle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79C19642926D6400039B9A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				E77FA61C2926D7CA00D163E9 /* Model.swift */,
 				349B74E429290C02005A9C2B /* Answer.swift */,
 				349B74E629291231005A9C2B /* WordleRules.swift */,
-				349B74E829292238005A9C2B /* Array+SafeSubscript.swift */,
 			);
 			path = "swift-wordle";
 			sourceTree = "<group>";
@@ -146,7 +143,6 @@
 				E77FA61D2926D7CA00D163E9 /* Model.swift in Sources */,
 				E79C19672926D6400039B9A8 /* ViewController.swift in Sources */,
 				E79C19652926D6400039B9A8 /* AppDelegate.swift in Sources */,
-				349B74E929292238005A9C2B /* Array+SafeSubscript.swift in Sources */,
 				349B74E729291231005A9C2B /* WordleRules.swift in Sources */,
 				349B74E529290C02005A9C2B /* Answer.swift in Sources */,
 			);
