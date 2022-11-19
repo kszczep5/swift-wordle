@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -675,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="lab2_KSzczep" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="swift_wordle" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -705,7 +705,7 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="lab2_KSzczep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="swift_wordle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="270" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -718,7 +718,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="S4D-pp-J0U"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="S4D-pp-J0U"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-G3-UKC">
@@ -729,7 +729,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="nib-2A-Zyz"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="nib-2A-Zyz"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uf5-mf-F6i">
@@ -740,7 +740,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="t33-BY-qLD"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="t33-BY-qLD"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7HR-Ss-UaU">
@@ -751,7 +751,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="Hr8-cR-oi5"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="Hr8-cR-oi5"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzK-HF-j51">
@@ -762,7 +762,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="Ikx-Z4-go4"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="Ikx-Z4-go4"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2TT-DH-fRo">
@@ -773,7 +773,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="kxl-Z6-4XG"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="kxl-Z6-4XG"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtw-Dj-ZfD">
@@ -784,7 +784,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="lqN-Vn-ySb"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="lqN-Vn-ySb"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFi-K6-2As">
@@ -795,7 +795,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="DrN-ve-iZc"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="DrN-ve-iZc"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omu-Kw-oe4">
@@ -806,7 +806,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="al9-uJ-dVG"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="al9-uJ-dVG"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ppZ-Kt-XlV">
@@ -817,7 +817,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="numberKeyAction:" target="XfG-lQ-9wD" id="ycN-SS-UHS"/>
+                                    <action selector="numberKeyPressed:" target="XfG-lQ-9wD" id="ycN-SS-UHS"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcW-FJ-F4e">
@@ -828,7 +828,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="checkPress:" target="XfG-lQ-9wD" id="QV5-4C-HFH"/>
+                                    <action selector="checkPressed:" target="XfG-lQ-9wD" id="aUQ-bj-hJA"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GzK-IG-vRQ">
@@ -839,7 +839,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="newGame:" target="XfG-lQ-9wD" id="Kas-6m-HeV"/>
+                                    <action selector="newGamePressed:" target="XfG-lQ-9wD" id="uKb-47-tJ4"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="O6j-Ga-yH9">
@@ -1210,7 +1210,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="positionKeyAction:" target="XfG-lQ-9wD" id="1ZD-dl-wjm"/>
+                                    <action selector="positionKeyPressed:" target="XfG-lQ-9wD" id="1ZD-dl-wjm"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="tzS-47-EmU">
@@ -1221,7 +1221,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="positionKeyAction:" target="XfG-lQ-9wD" id="0Fn-Wd-C2p"/>
+                                    <action selector="positionKeyPressed:" target="XfG-lQ-9wD" id="0Fn-Wd-C2p"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="FXq-iA-S4Y">
@@ -1232,7 +1232,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="positionKeyAction:" target="XfG-lQ-9wD" id="vTF-W1-nCM"/>
+                                    <action selector="positionKeyPressed:" target="XfG-lQ-9wD" id="vTF-W1-nCM"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="mdI-Fz-x23">
@@ -1243,7 +1243,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="positionKeyAction:" target="XfG-lQ-9wD" id="gV1-iJ-e5j"/>
+                                    <action selector="positionKeyPressed:" target="XfG-lQ-9wD" id="gV1-iJ-e5j"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="pnn-81-mlh">
@@ -1254,7 +1254,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="positionKeyAction:" target="XfG-lQ-9wD" id="U0S-1c-VWV"/>
+                                    <action selector="positionKeyPressed:" target="XfG-lQ-9wD" id="U0S-1c-VWV"/>
                                 </connections>
                             </button>
                         </subviews>

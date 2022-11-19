@@ -8,8 +8,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
-    var model: Model = Model()
+    
+    private let model: Model = Model()
     
     @IBOutlet weak var label1: NSTextField!
     @IBOutlet weak var label2: NSTextField!
@@ -53,105 +53,81 @@ class ViewController: NSViewController {
     @IBOutlet weak var label40: NSTextField!
     @IBOutlet weak var newGameButton: NSButton!
     
-    var labels: [NSTextField] = []
+    private var activeTextFields: [NSTextField] {
+        textFields(forRowAt: model.rowIndex)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        newVerse(model.verse)
-        
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "updateScreen"),
-            object: nil,
-            queue: nil
-        ) { (notification: Notification) -> Void in
-            self.changeLabel(self.model.answer, self.model.position)
-            }
-        
-        
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "updateColor"),
-            object: nil,
-            queue: nil
-        ) { (notification: Notification) -> Void in
-            self.changeLabelColor()
-            self.newVerse(self.model.verse)
-            self.model.position = 0
-            }
-        
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-    @IBAction func positionKeyAction(_ sender: NSButton) {
-        model.changePos(sender.tag)
     }
     
-    @IBAction func numberKeyAction(_ sender: NSButton) {
-        model.numberBuild(sender.title)
+    @IBAction func positionKeyPressed(_ sender: NSButton) {
+        model.changePosition(to: sender.tag)
     }
     
-    func changeLabel(_ numbers: [String],_ pos: Int){
-        
-        labels[pos].stringValue = numbers[pos]
+    @IBAction func numberKeyPressed(_ sender: NSButton) {
+        activeTextFields[model.position].stringValue = sender.title
     }
     
-    @IBAction func checkPress(_ sender: NSButton) {
-        model.check()
+    private func changeLabel(_ numbers: [String],_ pos: Int) {
+        activeTextFields[model.position].stringValue = numbers[pos]
     }
     
-    func changeLabelColor(){
-        var i = 0
-        for label in labels {
-            if(model.yellow[i] != ""){
-                label.backgroundColor = .systemOrange
-            }
-            if (model.green[i] != "") {
-                label.backgroundColor = .systemGreen
-            }
-            i+=1
+    @IBAction func checkPressed(_ sender: NSButton) {
+        let answer = Answer(elements: [
+            .init(activeTextFields[0].stringValue),
+            .init(activeTextFields[1].stringValue),
+            .init(activeTextFields[2].stringValue),
+            .init(activeTextFields[3].stringValue),
+            .init(activeTextFields[4].stringValue)
+        ])
+        model.check(answer) { [unowned self] checkedRowIndex, checkedAnswer in
+            self.textFields(forRowAt: checkedRowIndex)
+                .enumerated()
+                .forEach { index, textField in
+                    updateBackgroundColor(of: textField, basedOn: checkedAnswer[index].validation)
+                }
         }
     }
     
-    @IBAction func newGame(_ sender: NSButton) {
+    private func updateBackgroundColor(of textField: NSTextField, basedOn validation: Answer.Element.Validation) {
+        switch validation {
+        case .presentButIncorrectPosition:
+            textField.backgroundColor = .orange
+        case .correctPosition:
+            textField.backgroundColor = .green
+        case .none:
+            textField.backgroundColor = .white
+        }
+    }
+    
+    @IBAction func newGamePressed(_ sender: NSButton) {
         model.newGame()
-        for i in 0...7 {
-            newVerse(i)
-            for label in labels {
-                label.backgroundColor = .white
-                label.stringValue = ""
-            }
-        }
-        newVerse(model.verse)
-        model = Model()
+        resetTextFields()
     }
     
-    func newVerse(_ verse: Int){
-        switch verse{
-        case 0: labels = [label1, label2, label3, label4, label5]
-        case 1: labels = [label6, label7, label8, label9, label10]
-        case 2: labels = [label11, label12, label13, label14, label15]
-        case 3: labels = [label16, label17, label18, label19, label20]
-        case 4: labels = [label21, label22, label23, label24, label25]
-        case 5: labels = [label26, label27, label28, label29, label30]
-        case 6: labels = [label31, label32, label33, label34, label35]
-        case 7: labels = [label36, label37, label38, label39, label40]
-        default:
-            labels = [label1, label2, label3, label4, label5]
-            model.verse = 0
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.newGame(self.newGameButton)
-            }
-            
+    private func resetTextFields() {
+        for rowIndex in 0 ..< WordleRules.maxTries {
+            textFields(forRowAt: rowIndex)
+                .forEach {
+                    $0.backgroundColor = .white
+                    $0.stringValue = ""
+                }
         }
     }
     
-    
+    private func textFields(forRowAt rowIndex: Int) -> [NSTextField] {
+        switch rowIndex {
+        case 0: return [label1, label2, label3, label4, label5]
+        case 1: return [label6, label7, label8, label9, label10]
+        case 2: return [label11, label12, label13, label14, label15]
+        case 3: return [label16, label17, label18, label19, label20]
+        case 4: return [label21, label22, label23, label24, label25]
+        case 5: return [label26, label27, label28, label29, label30]
+        case 6: return [label31, label32, label33, label34, label35]
+        case 7: return [label36, label37, label38, label39, label40]
+        default: fatalError("Row not supported at index: \(rowIndex)")
+        }
+    }
     
 }
-
-

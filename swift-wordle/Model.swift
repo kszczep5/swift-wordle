@@ -7,71 +7,51 @@
 
 import Foundation
 
-class Model{
+class Model {
     
-    private var goodAnswer = ["1", "2", "3", "4", "5"]
+    private var correctAnswer: Answer
+    private(set) var answers: [Answer]
     
+    init(
+        correctAnswer: Answer = .init(elements: [.init("1"), .init("2"), .init("3"), .init("4"), .init("5")]),
+        answers: [Answer] = []
+    ) {
+        self.correctAnswer = correctAnswer
+        self.answers = answers
+    }
+    
+    var rowIndex = 0
     var position = 0
     
-    var verse = 0
-    
-    var answer = ["", "", "", "", ""]{
-        didSet(newValue){
-            let notificationCenter = NotificationCenter.default
-            let notification = Notification(name: Notification.Name(rawValue: "updateScreen"), object: nil)
-            notificationCenter.post(notification)
-        }
+    func changePosition(to newPosition: Int) {
+        position = newPosition
     }
     
-    var updateColor = 0{
-        didSet(newValue){
-            let notificationCenter = NotificationCenter.default
-            let notification = Notification(name: Notification.Name(rawValue: "updateColor"), object: nil)
-            notificationCenter.post(notification)
-        }
-    }
-    
-    
-    var green = ["","","","",""]
-    var yellow = ["","","","",""]
-    
-    init(){
-        
-        
-    }
-    
-    func changePos(_ pos: Int){
-        position = pos
-    }
-    
-    func numberBuild(_ number: String){
-        answer[position] = number
-    }
-    
-    func check(){
-        var i = 0
-        for element in answer{
-            if (goodAnswer.contains(element) && goodAnswer[i] != element) {
-                yellow[i] = element
-            } else if (goodAnswer.contains(element) && goodAnswer[i] == element){
-                green[i] = element
+    func check(_ answer: Answer, completionHandler: @escaping (Int, Answer) -> Void) {
+        var checkedAnswer = Answer()
+        for index in answer.elements.indices {
+            if correctAnswer.contains(answer[index]) {
+                checkedAnswer.elements.append(
+                    .init(
+                        answer[index].value,
+                        validation: correctAnswer[index].value == answer[index].value ? .presentButIncorrectPosition : .correctPosition
+                    )
+                )
+            } else {
+                checkedAnswer.elements.append(.init(answer[index].value))
             }
-            i+=1
         }
-        verse += 1
-        updateColor = 1
-        answer = ["", "", "", "", ""]
-        green = ["", "", "", "", ""]
-        yellow = ["", "", "", "", ""]
+        answers.append(checkedAnswer)
+        completionHandler(rowIndex, checkedAnswer)
+        rowIndex += 1
+        position = 0
     }
     
     
-    func newGame(){
-        answer = ["", "", "", "", ""]
-        green = ["", "", "", "", ""]
-        yellow = ["", "", "", "", ""]
-        verse = 0
-
+    func newGame(withCorrectAnswer answer: Answer = .random) {
+        correctAnswer = answer
+        rowIndex = 0
+        answers = []
     }
     
 }
