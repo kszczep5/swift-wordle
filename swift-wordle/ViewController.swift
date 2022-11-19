@@ -53,6 +53,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var label40: NSTextField!
     @IBOutlet weak var newGameButton: NSButton!
     
+    private var activeTextFields: [NSTextField] {
+        textFields(forRowAt: model.rowIndex)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -62,15 +66,14 @@ class ViewController: NSViewController {
     }
     
     @IBAction func numberKeyPressed(_ sender: NSButton) {
-        textFields(forRowAt: model.rowIndex)[model.position].stringValue = sender.title
+        activeTextFields[model.position].stringValue = sender.title
     }
     
     private func changeLabel(_ numbers: [String],_ pos: Int){
-        textFields(forRowAt: model.rowIndex)[model.position].stringValue = numbers[pos]
+        activeTextFields[model.position].stringValue = numbers[pos]
     }
     
     @IBAction func checkPressed(_ sender: NSButton) {
-        let activeTextFields = textFields(forRowAt: model.rowIndex)
         let answer = Answer(elements: [
             .init(activeTextFields[0].stringValue),
             .init(activeTextFields[1].stringValue),
@@ -85,6 +88,7 @@ class ViewController: NSViewController {
                     updateBackgroundColor(of: textField, basedOn: checkedAnswer[index].validation)
                 }
         }
+        
     }
     
     private func updateBackgroundColor(of textField: NSTextField, basedOn validation: Answer.Element.Validation){

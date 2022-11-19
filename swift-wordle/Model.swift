@@ -42,7 +42,6 @@ class Model {
             }
         }
         answers.append(checkedAnswer)
-        print(checkedAnswer)
         completionHandler(rowIndex, checkedAnswer)
         rowIndex += 1
         position = 0
