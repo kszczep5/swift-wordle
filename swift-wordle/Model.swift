@@ -17,7 +17,6 @@ class Model {
         answers: [Answer] = []
     ) {
         self.correctAnswer = correctAnswer
-        print("CORRECT ANSWER \(correctAnswer)")
         self.answers = answers
     }
     
@@ -32,7 +31,6 @@ class Model {
         var checkedAnswer = Answer()
         for index in answer.elements.indices {
             if correctAnswer.contains(answer[index]) {
-                print("CONTAINS")
                 checkedAnswer.elements.append(
                     .init(
                         answer[index].value,
