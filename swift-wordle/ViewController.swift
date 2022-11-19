@@ -81,8 +81,8 @@ class ViewController: NSViewController {
             .init(activeTextFields[3].stringValue),
             .init(activeTextFields[4].stringValue)
         ])
-        model.check(answer) { [unowned self] rowIndex, checkedAnswer in
-            self.textFields(forRowAt: rowIndex)
+        model.check(answer) { [unowned self] checkedRowIndex, checkedAnswer in
+            self.textFields(forRowAt: checkedRowIndex)
                 .enumerated()
                 .forEach { index, textField in
                     updateBackgroundColor(of: textField, basedOn: checkedAnswer[index].validation)
